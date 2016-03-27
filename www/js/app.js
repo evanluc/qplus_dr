@@ -1,31 +1,40 @@
 'use strict';
 
 var myApp = angular.module('myApp', [
-  'ui.router',
-  'myApp.home'
+    'ui.router',
+    'myApp.home'
 ]);
 
-// function assignServicesToRootScope($rootScope, userAuth){
-/*   $rootScope.userAuth = auth;
-   $rootScope.session = session;
-   console.log(userAuth);
-   }*/
+function assignServicesToRootScope($rootScope, userAuth, userSession){
+    $rootScope.userAuth = userAuth;
+    $rootScope.userSession = userSession;
+}
 
-//myApp.run(assignServicesToRootScope);
+
+myApp.run(assignServicesToRootScope);
 
 myApp.config(function($urlRouterProvider,$stateProvider) {
-  // Routes will be here
-  
 
-  $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise(function($injector, $location) {
+        var $state = $injector.get('$state');
+	console.log('routingoutherwirse');
+        $state.go('home');
+    });
 
-  $stateProvider
+    $stateProvider
 	.state('home', {
-          url: '/',
-	  templateUrl: 'js/components/home/home.html',
-	  controller: 'HomeCtrl'
+            url: '/',
+	    templateUrl: 'js/components/home/home.html',
+	    controller: 'HomeCtrl'
+	})
+
+	.state('splashScreen', {
+            url: '/list',
+            template: 'welcome to splash magic'
 	});
-  console.log('in route provider');
+
+    
+    console.log('in route provider');
 });
 
 
