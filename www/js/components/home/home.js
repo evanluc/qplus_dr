@@ -1,41 +1,48 @@
 'use strict';
 
-//angular.module('myApp.home', ['ngRoute','firebase'])
+var myAppHome = angular.module('myApp.home', [
+  'ui.router',
+  'firebase'
+]);
 
-// Declared route 
-  /* .config(['$routeProvider', function($routeProvider) {
-     $routeProvider.when('/home', {
-     templateUrl: 'js/components/home/home.html',
-     controller: 'HomeCtrl'
-     });
-     }]) */
-// Home controller
-    .controller('HomeCtrl', ['$scope','$firebaseAuth',function($scope,$firebaseAuth) {
-	var firebaseObj = new Firebase("https://opaldoctor.firebaseio.com/");
-	var loginObj = $firebaseAuth(firebaseObj);
+myAppHome.controller('HomeCtrl', ['$scope','userAuth',function($scope,userAuth) {
+  // 	var firebaseObj = new Firebase("https://opaldoctor.firebaseio.com/");
+  // 	var loginObj = $firebaseAuth(firebaseObj);
+
+  // console.log('in console log');
+
+  //    console.log(userAuth);
+
+  $scope.user = {};
+  
+
+  // 	console.log($scope);
+  
+  // 	$scope.SignIn = function(e){
+  // 	    e.preventDefault();
+  
+  var username = $scope.user.email;
+  var password = $scope.user.password;
 
 
-	$scope.user = {};
-	
-	$scope.SignIn = function(e){
-	    e.preventDefault();
-	    
-	    var username = $scope.user.email;
-	    var password = $scope.user.password;
+  //    console.log(userAuth);
+  
+  //    userAuth.login(username,password);
 
-	    loginObj.$authWithPassword({
-		email: username,
-		password: password
-            })
-		.then(function(user) {
-		    // Success callback
-		  console.log('Authentication successful');
-		  console.log(user);
-		}, function(e) {
-		    // Failure callback
-		    console.log('Authentication failure');
-		    console.log(e);
-		});
-	    
-	};
-    }]);
+  //     loginObj.$authWithPassword({
+  // 	email: username,
+  // 	password: password
+  //     })
+  // 	.then(function(user) {
+  // 	    // Success callback
+  // 	  console.log('Authentication successful');
+  // 	    console.log(user);
+  
+  // 	}, function(e) {
+  // 	    // Failure callback
+  // 	    console.log('Authentication failure');
+  // 	    console.log(e);
+  // 	});
+  
+  // };
+}]);
