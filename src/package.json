@@ -1,0 +1,41 @@
+{
+  "name": "qplus-dr-app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "version": "1.0.0",
+  "description": "The Doctor application for the qplus project.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanluc/qplus_dr.git"
+  },
+  "keywords": [
+    "muhc",
+    "oncology"
+  ],
+  "author": "Evan McIlroy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evanluc/qplus_dr/issues"
+  },
+  "homepage": "https://github.com/evanluc/qplus_dr#readme",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "bluebird": "^3.2.1",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "firebase-token-generator": "^2.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bower-concat": "^0.6.0",
+    "grunt-contrib-jshint": "^0.12.0",
+    "jasmine": "^2.4.1",
+    "jasmine-node": "^1.14.5",
+    "load-grunt-tasks": "^3.4.0",
+    "morgan": "^1.6.1",
+    "mysql": "^2.10.2",
+    "requests": "^0.1.7"
+  }
+}

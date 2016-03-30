@@ -1,0 +1,32 @@
+{
+  "name": "qplus-dr-app",
+  "description": "The Doctor application for the qplus project.",
+  "main": "server.js",
+  "authors": [
+    "Evan McIlroy"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "muhc",
+    "oncology"
+  ],
+  "homepage": "https://github.com/evanluc/qplus_dr",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angularfire": "~1.1.4",
+    "firebase": "~2.4.1",
+    "jquery": "~2.2.0",
+    "angular-route": "~1.5.0",
+    "OnsenUI": "onsenui#~1.3.14",
+    "angular-ui-router": "~0.2.18"
+  }
+}

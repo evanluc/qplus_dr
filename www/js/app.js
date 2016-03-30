@@ -31,6 +31,11 @@ myApp.config(function($urlRouterProvider,$stateProvider) {
 	.state('splashScreen', {
             url: '/list',
             template: 'welcome to splash magic'
+	})
+
+        .state('menu',{
+	    url: '/menu',
+	    templateUrl: 'js/components/menu/menu.html'
 	});
 
     
