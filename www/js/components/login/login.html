@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+  
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+ 
+    <title>AngularJS & Firebase Web App</title>
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+ 
+    <link href="justified-nav.css" rel="stylesheet">
+ 
+</head>
+
+
+<ons-page>
+      <ons-toolbar>
+        <div class="center">Log In</div>
+      </ons-toolbar>
+
+      <div class="login-form">
+
+        <input type="email" class="text-input--underbar" placeholder="Email" value="" ng-model="user.email">
+        <input type="password" class="text-input--underbar" placeholder="Password" value="" ng-model="user.password">
+        <br><br>
+        <ons-button modifier="large" type="submit" ng-click="SignIn($event)" class="login-button">Log In</ons-button>
+        <br><br>
+        <ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button>
+      </div>
+
+    </ons-page>
+</html>
