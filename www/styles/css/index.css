@@ -1205,3 +1205,9 @@ p{
     color: #2B6197;
     text-align: center;
 }
+
+.taskHeader{
+    padding: 7px;
+    background-color: #bada55;
+    font-size: 20px;
+}

@@ -2,8 +2,11 @@
 
 var myApp = angular.module('myApp', [
     'ui.router',
-    'myApp.home'
+    'myApp.login',
+    'myApp.home',
+    'onsen'
 ]);
+
 
 function assignServicesToRootScope($rootScope, userAuth, userSession){
     $rootScope.userAuth = userAuth;
@@ -16,16 +19,16 @@ myApp.run(assignServicesToRootScope);
 myApp.config(function($urlRouterProvider,$stateProvider) {
 
     $urlRouterProvider.otherwise(function($injector, $location) {
-        var $state = $injector.get('$state');
+	var $state = $injector.get('$state');
 	console.log('routingoutherwirse');
-        $state.go('home');
+	$state.go('login');
     });
 
     $stateProvider
-	.state('home', {
+	.state('login', {
             url: '/',
-	    templateUrl: 'js/components/home/home.html',
-	    controller: 'HomeCtrl'
+	    templateUrl: 'js/components/login/login.html',
+	    controller: 'LoginCtrl'
 	})
 
 	.state('splashScreen', {
@@ -36,10 +39,13 @@ myApp.config(function($urlRouterProvider,$stateProvider) {
         .state('menu',{
 	    url: '/menu',
 	    templateUrl: 'js/components/menu/menu.html'
-	});
-
+	})
     
-    console.log('in route provider');
+	.state('tasks',{
+	    url: '/tasks',
+	    templateUrl: 'js/components/home/home.html',
+	    controller: 'TasksCtrl'
+	});
 });
 
 

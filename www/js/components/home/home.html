@@ -1,36 +1,133 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
- 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
- 
-    <title>AngularJS & Firebase Web App</title>
- 
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
- 
-    <link href="justified-nav.css" rel="stylesheet">
- 
-</head>
- 
-<body>
- 
-    <div class="container">
-        <div class="jumbotron" style="padding-bottom:0px;">
-            <h2>AngularJS & Firebase App!</h2>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <ons-page>
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">Profile</div>
+        <div class="right">
+          <ons-toolbar-button><ons-icon icon="ion-gear-a" style="vertical-align: -4px; font-size: 28px;"></ons-icon></ons-toolbar-button>
         </div>
-        <form class="form-signin" role="form">
-            <input type="email" name="email" class="form-control" placeholder="Email address" required="" autofocus="" ng-model="user.email">
-            <input type="password" name="password" class="form-control" placeholder="Password" required="" ng-model="user.password">
-            <label class="checkbox">
-                <a href="#"> Sign Up</>
-        </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="SignIn($event)">Sign in</button>
-      </form>
- 
-    </div>
- 
-   
- 
-</body></html>
+      </ons-toolbar>
+
+
+      <ons-list>
+        <ons-list-item>
+          <ons-row>
+            <ons-col class="info-col">
+              <div class="info-num">1</div>
+              <div class="info-unit">Overdue</div>
+            </ons-col>
+            <ons-col class="info-col">
+              <div class="info-num">4</div>
+              <div class="info-unit">Today</div>
+            </ons-col>
+            <ons-col class="info-col">
+              <div class="info-num">38</div>
+              <div class="info-unit">Upcoming</div>
+            </ons-col>
+          </ons-row>
+        </ons-list-item>
+      </ons-list>
+
+
+      <ons-list class="plan-list">
+
+	<ons-row class="taskHeader">
+	  Overdue
+	</ons-row>
+        <ons-list-item modifier="chevron" class="plan">
+          <ons-row ng-click="$state.go('login')">
+            <ons-col width="80px" class="plan-left">
+              <div class="plan-date">5:30 PM</div>
+              <div class="plan-duration"></div>
+            </ons-col>
+
+            <ons-col width="6px" class="plan-center" ng-style="{backgroundColor:'#DE5458'}">
+            </ons-col>
+
+            <ons-col class="plan-right">
+              <div class="plan-name">Ready for MD contour</div>
+
+              <div class="plan-info">
+                <div ng-hide="a % 4 == 0">
+                  <ons-icon icon="fa-phone"></ons-icon>Fred Flintsone
+                </div>
+
+                <div ng-hide="a % 3 == 0">
+                  <ons-icon icon="fa-map-marker"></ons-icon>Room ABC
+                </div>
+              </div>
+            </ons-col>
+          </ons-row>
+        </ons-list-item>
+
+      </ons-list>
+
+      <ons-list class="plan-list">
+
+	<ons-row class="taskHeader">
+	  Today
+	</ons-row>
+        <ons-list-item modifier="chevron" class="plan">
+          <ons-row ng-click="$state.go('splashScreen')">
+            <ons-col width="80px" class="plan-left">
+              <div class="plan-date">5:30 PM</div>
+              <div class="plan-duration"></div>
+            </ons-col>
+
+            <ons-col width="6px" class="plan-center" ng-style="{backgroundColor:'#3399ff'}">
+            </ons-col>
+
+            <ons-col class="plan-right">
+              <div class="plan-name">Ready for Dose</div>
+
+              <div class="plan-info">
+                <div ng-hide="a % 4 == 0">
+                  <ons-icon icon="fa-phone"></ons-icon>Fred Flintsone
+                </div>
+
+                <div ng-hide="a % 3 == 0">
+                  <ons-icon icon="fa-map-marker"></ons-icon>Room ABC
+                </div>
+              </div>
+            </ons-col>
+          </ons-row>
+        </ons-list-item>
+
+        <ons-list-item modifier="chevron" class="plan">
+          <ons-row ng-click="$state.go('splashScreen')">
+            <ons-col width="80px" class="plan-left">
+              <div class="plan-date">5:30 PM</div>
+              <div class="plan-duration"></div>
+            </ons-col>
+
+            <ons-col width="6px" class="plan-center" ng-style="{backgroundColor:'#CCC'}">
+            </ons-col>
+
+            <ons-col class="plan-right">
+              <div class="plan-name">Ready for Dancing</div>
+
+              <div class="plan-info">
+                <div ng-hide="a % 4 == 0">
+                  <ons-icon icon="fa-phone"></ons-icon>Fred Evan
+                </div>
+
+                <div ng-hide="a % 3 == 0">
+                  <ons-icon icon="fa-map-marker"></ons-icon>Room CDE
+                </div>
+              </div>
+            </ons-col>
+          </ons-row>
+        </ons-list-item>	
+
+      </ons-list>
+
+    </ons-page>
+
+  </body>
+</html>

@@ -8,17 +8,21 @@ module.exports = function(grunt) {
 	},
 	bower_concat: {
 	    all: {
-		dest: '../www/build/bower.js'
+		mainFiles:{
+		    'OnsenUI': ['js/onsenui.js','css/onsenui.css','css/onsen-css-components-blue-basic-theme.css']
+		},
+		dest: '../www/build/bower.js',
+		cssDest: '../www/build/bower.css'
 	    }
 	}
     });
 
     
 
-  grunt.loadNpmTasks('grunt-contrib-jshint'); 
-  grunt.loadNpmTasks('grunt-bower-concat');
+    grunt.loadNpmTasks('grunt-contrib-jshint'); 
+    grunt.loadNpmTasks('grunt-bower-concat');
 
-  grunt.registerTask('default', ['jshint', 'bower_concat']);
+    grunt.registerTask('default', ['jshint', 'bower_concat']);
 
 
 

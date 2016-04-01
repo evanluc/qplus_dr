@@ -10,6 +10,7 @@ var api = require('./api.js');
 var app = express();
 
 /* Express Configuration */
+app.use("../www", express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

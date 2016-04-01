@@ -1,21 +1,15 @@
-'use strict';
+var myAppTasks = angular.module('myApp.home', []);
 
-var myAppHome = angular.module('myApp.home', [
-    'ui.router',
-    'firebase'
-]);
+myAppTasks.controller('TasksCtrl',['requestToFirebase','$state','$scope','$http',function(requestToFirebase,$state,$scope,$http){
 
-myAppHome.controller('HomeCtrl', ['$scope','userAuth',function($scope,userAuth) {
-
-    $scope.user = {};
+    requestToFirebase.request('tasks');
     
-    $scope.SignIn = function(e){
-   	e.preventDefault();
-	
-	var username = $scope.user.email;
-	var password = $scope.user.password;
-
-	userAuth.login(username,password);
-	
-    };
+    $http.get('/tasks/')
+	.success(function(data){
+	    console.log('success getting the data');
+	    $scope.tasks = data;
+	})
+	.error(function(data){
+	    console.log('error getting the data');
+	});
 }]);
