@@ -10,7 +10,8 @@ myApp.service('requestToFirebase',function($http){
   console.log('request to firebase');
     var myFirebaseRef = new Firebase('https://opaldoctor.firebaseio.com/');
   this.request = function(request){
-	myFirebaseRef.push({ 'Request' : request });
+    myFirebaseRef.push({ 'Request' : request });
+    console.log('done pushing request to firebase');
     };
 
 });

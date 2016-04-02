@@ -9,8 +9,8 @@ var myFirebaseRef = new Firebase('https://opaldoctor.firebaseio.com/');
 var requestsRef = new Firebase('https://opaldoctor.firebaseio.com/Requests');
 var authData = myFirebaseRef.getAuth();
 
+
 exports.sendFirebaseRequest = function(firebaseObject){
-  myFirebaseRef.push("in sending firebase request");
   myFirebaseRef.push(firebaseObject);
 };
 

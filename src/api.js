@@ -11,22 +11,16 @@ var Promise = require('bluebird');
 
 exports.getTasks = function(){
 
-    var dataPromise = bluebird.defer();
-    
-    sqlConnection.getTasks().then(function(rows){
-	console.log('returning from fnction');
-	dataPromise.resolve(rows);
+    var sqlTasksResults = sqlConnection.getTasks().then(function(data){
+	return firebase.sendFirebaseRequest(data);
     });
 
-    return dataPromise.promise;
-
-    // firebase.sendFirebaseRequest(tasks);
+};
+exports.getPatients = function(){
+    var sqlPatientsResults = sqlConnection.getPatients().then(function(data){
+	firebase.sendFirebaseRequest(data);
+    });
 
 };
-    exports.getPatients = function(){
-	var patients = sqlConnection.getPatients();
-	console.log(patients);
-	firebase.sendFirebaseRequest(patients);
-    };
 
 
