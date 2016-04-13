@@ -7,7 +7,8 @@ var myApp = angular.module('myApp', [
     'onsen'
 ]);
 
-
+//username: evanmcilroy@gmail.com
+//password: password
 function assignServicesToRootScope($rootScope, userAuth, userSession){
     $rootScope.userAuth = userAuth;
     $rootScope.userSession = userSession;
