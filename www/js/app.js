@@ -8,9 +8,9 @@ var myApp = angular.module('myApp', [
 ]);
 
 
-function assignServicesToRootScope($rootScope, userAuth, userSession){
+function assignServicesToRootScope($rootScope, userAuth, sessionService){
     $rootScope.userAuth = userAuth;
-    $rootScope.userSession = userSession;
+    $rootScope.userSession = sessionService;
 }
 
 
