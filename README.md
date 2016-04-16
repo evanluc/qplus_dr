@@ -2,6 +2,8 @@
 
 ## COMP 396 - Supervised by Professor Hendren
 
+These build steps require the installation of [NodeJS] (https://nodejs.org/en/) and [NPM] (https://www.npmjs.com/).
+
 Build Steps for new developers, from the ./src directory
 >1. npm install 
 >2. bower install
