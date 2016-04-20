@@ -8,7 +8,7 @@
     <ons-page>
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
-        <div class="center">Profile</div>
+        <div class="center">Tasks</div>
         <div class="right">
           <ons-toolbar-button><ons-icon icon="ion-gear-a" style="vertical-align: -4px; font-size: 28px;"></ons-icon></ons-toolbar-button>
         </div>
@@ -23,7 +23,7 @@
               <div class="info-unit">Overdue</div>
             </ons-col>
             <ons-col class="info-col">
-              <div class="info-num">4</div>
+              <div class="info-num">3</div>
               <div class="info-unit">Today</div>
             </ons-col>
             <ons-col class="info-col">
@@ -44,7 +44,7 @@
           <ons-row ng-click="$state.go('login')">
             <ons-col width="80px" class="plan-left">
               <div class="plan-date">5:30 PM</div>
-              <div class="plan-duration"></div>
+              <div class="plan-duration">Nov 3 2015</div>
             </ons-col>
 
             <ons-col width="6px" class="plan-center" ng-style="{backgroundColor:'#DE5458'}">
@@ -76,8 +76,8 @@
         <ons-list-item modifier="chevron" class="plan">
           <ons-row ng-click="$state.go('splashScreen')">
             <ons-col width="80px" class="plan-left">
-              <div class="plan-date">5:30 PM</div>
-              <div class="plan-duration"></div>
+              <div class="plan-date">2:30 PM</div>
+              <div class="plan-duration">Today</div>
             </ons-col>
 
             <ons-col width="6px" class="plan-center" ng-style="{backgroundColor:'#3399ff'}">
@@ -103,14 +103,14 @@
           <ons-row ng-click="$state.go('splashScreen')">
             <ons-col width="80px" class="plan-left">
               <div class="plan-date">5:30 PM</div>
-              <div class="plan-duration"></div>
+              <div class="plan-duration">Today</div>
             </ons-col>
 
             <ons-col width="6px" class="plan-center" ng-style="{backgroundColor:'#CCC'}">
             </ons-col>
 
             <ons-col class="plan-right">
-              <div class="plan-name">Ready for Dancing</div>
+              <div class="plan-name">Ready for Radiation</div>
 
               <div class="plan-info">
                 <div ng-hide="a % 4 == 0">
@@ -126,6 +126,34 @@
         </ons-list-item>	
 
       </ons-list>
+
+        <ons-list-item modifier="chevron" class="plan">
+          <ons-row ng-click="$state.go('splashScreen')">
+            <ons-col width="80px" class="plan-left">
+              <div class="plan-date">6:30 PM</div>
+              <div class="plan-duration">Today</div>
+            </ons-col>
+
+            <ons-col width="6px" class="plan-center" ng-style="{backgroundColor:'#CCC'}">
+            </ons-col>
+
+            <ons-col class="plan-right">
+              <div class="plan-name">Ready To Breathe</div>
+
+              <div class="plan-info">
+                <div ng-hide="a % 4 == 0">
+                  <ons-icon icon="fa-phone"></ons-icon>Macy Grey
+                </div>
+
+                <div ng-hide="a % 3 == 0">
+                  <ons-icon icon="fa-map-marker"></ons-icon>Room 543
+                </div>
+              </div>
+            </ons-col>
+          </ons-row>
+        </ons-list-item>	
+
+      </ons-list>      
 
     </ons-page>
 

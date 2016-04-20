@@ -1,27 +1,48 @@
-'use strict';
+(function (angular) {
 
-(function userSession($log,localStorage){
-    
-    console.log('local service user session' + localStorage);
+  function sessionService($log, localStorage){
 
-//    this._authData = JSON.parse(localStorage.getItem('session.authData'));
+    // Instantiate data when service
+    // is loaded
+    this._user = JSON.parse(localStorage.getItem('session.user'));
+    this._accessToken = JSON.parse(localStorage.getItem('session.accessToken'));
 
-    
- //   this._user = JSON.parse(localStorage.getItem('session.user'));
+    this.getUser = function(){
+      return this._user;
+    };
 
-//     this.setUser = function(user){
-// 	this._user = user;
-// //	localStorage.setItem('session.user', JSON.stringify(user));
-// 	return this;
-//     }
-//    ;
+    this.setUser = function(user){
+      this._user = user;
+      localStorage.setItem('session.user', JSON.stringify(user));
+      return this;
+    };
 
+    this.getAccessToken = function(){
+      return this._accessToken;
+    };
 
-    userSession.$inject = ['$log', 'localStorage'];
-    angular
-	.module('myApp')
-	.service('userSession', userSession);
-    
+    this.setAccessToken = function(token){
+      this._accessToken = token;
+      localStorage.setItem('session.accessToken', token);
+      return this;
+    };
+
+    /**
+     * Destroy session
+     */
+    this.destroy = function destroy(){
+      this.setUser(null);
+      this.setAccessToken(null);
+    };
+
+  }
+
+  // Inject dependencies
+  sessionService.$inject = ['$log', 'localStorage'];
+
+  // Export
+  angular
+    .module('myApp')
+    .service('sessionService', sessionService);
 
 })(angular);
-
