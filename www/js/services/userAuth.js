@@ -10,7 +10,9 @@ myApp.service('userAuth',['$firebaseAuth', function($firebaseAuth){
     console.log('in the my app service');
     var firebaseObj = new Firebase("https://opaldoctor.firebaseio.com/");
     var loginObj = $firebaseAuth(firebaseObj);
-
+    //login credential
+    //username: evanmcilroy@gmail.com
+    //password: password
 
     this.isLoggedIn = function(){
 	console.log(loginObj);

@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<ons-navigator title="Navigator" var="myNavigatorPatients">
+		<ons-page>
+		  <ons-toolbar>
+		    <div class="left">
+		        <ons-toolbar-button ng-click="menu.toggle()">
+		        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon><div class="notification menu-notification">	{{TotalNumberOfNews}}</div>
+	        	</ons-toolbar-button>
+	    	</div>
+	    	<div class="center">Patients</div>
+	       </ons-toolbar>
+		 <!-- Pattern: People -->
+		  <ons-tabbar>
+		      <ons-tab page="Search.html" active="true">
+		        <ons-icon icon="ion-ios7-people" class="tab-icon">
+		        </ons-icon><span class="tab-label">Search</span>
+		      </ons-tab>
+		
+		      <ons-tab page="Recent.html">
+		        <ons-icon icon="ion-person" class="tab-icon">
+		        </ons-icon><span class="tab-label">Recent</span>
+		      </ons-tab>
+		  </ons-tabbar>
+		</ons-page>
+		
+		  <ons-template id="Search.html">
+		      <ons-page>
+		        <ons-toolbar>
+		          <div class="center">
+		            Search
+		          </div>
+		          <!-- <div class="right">
+		            <ons-toolbar-button>
+		              <ons-icon icon="ion-plus" fixed-width="false" style="vertical-align: -4px;"></ons-icon>
+		            </ons-toolbar-button>
+		          </div> -->
+		        </ons-toolbar>
+		
+		        <div class="navigation-bar search-bar">
+		          <div class="navigation-bar__center">
+		
+		            <input type="text" ng-model="patientName" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Search">
+	
+	    	      </div>
+	    	    </div>
+		
+	    	    <!-- insert -->
+	    	<div class="after-search-bar">
+	    	  <ons-list>
+		
+	    	  <ons-list-item ng-repeat="patient in patientdb.patients | filter: patientName | orderBy: 'name'" modifier="chevron" class="list-item-container">
+	    	    <ons-row ng-click="addRecent(patient)">
+	    	      <ons-col width="95px">
+	    	        <img src="/www/img/EdisonChen.jpg" class="thumbnail">
+	    	      </ons-col>
+	    	      <ons-col>
+	    	        <div class="name">
+	    	          {{ patient.name }}
+	    	        </div>
+	    	        <div class="location">
+	    	          <i class="fa fa-map-marker"></i> {{ patient.HospitalID }}
+	    	        </div>
+	    	        <div class="desc">
+	    	          {{ patient.RAMQNUM }}
+	    	        </div>
+	    	      </ons-col>
+	    	      <ons-col width="40px"></ons-col>
+	    	    </ons-row>
+	    	  </ons-list-item>
+		
+	    	</ons-list>
+	
+	  	</div>
+	  	  <!-- insert end -->
+		
+	  	      <!-- <ons-list class="person-list" ng-repeat="char in ['A', 'B', 'C', 'D', 'E']">
+	  	        <ons-list-header class="person-list-header">{{char}}</ons-list-header>
+	  	        <ons-list-item class="person" modifier="tappable" ng-repeat="i in [1,2,3,4,5]">
+	  	          <ons-row>
+	  	            <ons-col width="40px">
+	  	            <img src="/www/img/DanielWu.jpg" class="person-image">
+	  	            </ons-col>
+	  	            <ons-col class="person-name">
+	  	              Daniel Wu
+	  	            </ons-col>
+	  	          </ons-row>
+	  	        </ons-list-item>
+	  	      </ons-list> -->
+	  	    </ons-page>
+	  	  </ons-template>  
+		
+	  	  <!-- Pattern: List Thumbnails -->
+	  	<!-- <ons-toolbar>
+	  	    <div class="center">Picture List</div>
+	  	</ons-toolbar>
+	  	  <ons-list>
+		
+	  	    <ons-list-item modifier="chevron" class="list-item-container">
+	  	      <ons-row>
+	  	        <ons-col width="95px">
+	  	          <img src="/www/img/seaatnight.jpg" class="thumbnail">
+	  	        </ons-col>
+	  	        <ons-col>
+	  	          <div class="name">
+	  	            Eiffel Tower
+	  	          </div>
+	  	          <div class="location">
+	  	            <i class="fa fa-map-marker"></i> Paris, France
+	  	          </div>
+	  	          <div class="desc">
+	  	            Eiffel Tower is the symbol of Paris and named by Gustave Eiffel.
+	  	          </div>
+	  	        </ons-col>
+	  	        <ons-col width="40px"></ons-col>
+	  	      </ons-row>
+	  	    </ons-list-item>
+		
+	  	    <ons-list-item modifier="chevron" class="list-item-container">
+	  	      <ons-row>
+	  	        <ons-col width="95px">
+	  	          <img src="/www/img/NYC.jpg" class="thumbnail">
+	  	        </ons-col>
+	  	        <ons-col>
+	  	          <div class="name">
+	  	            One World Trade Center
+	  	          </div>
+	  	          <div class="location">
+	  	            <i class="fa fa-map-marker"></i> New York City, USA
+	  	          </div>
+	  	          <div class="desc">
+	  	            Director John Ford used Monument Valley for a number of his best-known films.
+	  	          </div>
+	  	        </ons-col>
+	  	        <ons-col width="40px"></ons-col>
+	  	      </ons-row>
+	  	    </ons-list-item>
+		
+	  	    <ons-list-item modifier="chevron" class="list-item-container">
+	  	      <ons-row>
+	  	        <ons-col width="95px">
+	  	          <img src="/www/img/sea.jpg" class="thumbnail">
+	  	        </ons-col>
+	  	        <ons-col>
+	  	          <div class="name">
+	  	            Mount Fuji
+	  	          </div>
+	  	          <div class="location">
+	  	            <i class="fa fa-map-marker"></i> Japan
+	  	          </div>
+	  	          <div class="desc">
+	  	            Mount Fuji is the highest mountain in Japan and a frequent attractive subject of Japaneseart.
+	  	          </div>
+	  	        </ons-col>
+	  	        <ons-col width="40px"></ons-col>
+	  	      </ons-row>
+	  	    </ons-list-item>
+		
+	  	    <ons-list-item modifier="chevron" class="list-item-container">
+	  	      <ons-row>
+	  	        <ons-col width="95px">
+	  	          <img src="/www/img/DanielWu.jpg" class="thumbnail">
+	  	        </ons-col>
+	  	        <ons-col>
+	  	          <div class="name">
+	  	            Tokyo Tower
+	  	          </div>
+	  	          <div class="location">
+	  	            <i class="fa fa-map-marker"></i> Tokyo, Japan
+	  	          </div>
+	  	          <div class="desc">
+	  	            Tokyo Tower is a communications and observation tower located in Tokyo, Japan.
+	  	          </div>
+	  	        </ons-col>
+	  	        <ons-col width="40px"></ons-col>
+	  	      </ons-row>
+	  	    </ons-list-item>
+		
+	  	    <ons-list-item modifier="chevron" class="list-item-container">
+	  	      <ons-row>
+	  	        <ons-col width="95px">
+	  	          <img src="/www/img/seaatnight.jpg" class="thumbnail">
+	  	        </ons-col>
+	  	        <ons-col>
+	  	          <div class="name">
+	  	            Eiffel Tower
+	  	          </div>
+	  	          <div class="location">
+	  	            <i class="fa fa-map-marker"></i> Paris, France
+	  	          </div>
+	  	          <div class="desc">
+	  	            Eiffel Tower is the symbol of Paris and named by Gustave Eiffel.
+	  	          </div>
+	  	        </ons-col>
+	  	        <ons-col width="40px"></ons-col>
+	  	      </ons-row>
+	  	    </ons-list-item>
+		
+	  	    <ons-list-item modifier="chevron" class="list-item-container">
+	  	      <ons-row>
+	  	        <ons-col width="95px">
+	  	          <img src="/www/img/seaatnight.jpg" class="thumbnail">
+	  	        </ons-col>
+	  	        <ons-col>
+	  	          <div class="name">
+	  	            Eiffel Tower
+	  	          </div>
+	  	          <div class="location">
+	  	            <i class="fa fa-map-marker"></i> Paris, France
+	  	          </div>
+	  	          <div class="desc">
+	  	            Eiffel Tower is the symbol of Paris and named by Gustave Eiffel.
+	  	          </div>
+	  	        </ons-col>
+	  	        <ons-col width="40px"></ons-col>
+	  	      </ons-row>
+	  	    </ons-list-item>
+		
+	  	    <ons-list-item modifier="chevron" class="list-item-container">
+	  	      <ons-row>
+	  	        <ons-col width="95px">
+	  	          <img src="/www/img/seaatnight.jpg" class="thumbnail">
+	  	        </ons-col>
+	  	        <ons-col>
+	  	          <div class="name">
+	  	            Eiffel Tower
+	  	          </div>
+	  	          <div class="location">
+	  	            <i class="fa fa-map-marker"></i> Paris, France
+	  	          </div>
+	  	          <div class="desc">
+	  	            Eiffel Tower is the symbol of Paris and named by Gustave Eiffel.
+	  	          </div>
+	  	        </ons-col>
+	  	        <ons-col width="40px"></ons-col>
+	  	      </ons-row>
+	  	    </ons-list-item>
+		
+	  	    <ons-list-item modifier="chevron" class="list-item-container">
+	  	      <ons-row>
+	  	        <ons-col width="95px">
+	  	          <img src="/www/img/seaatnight.jpg" class="thumbnail">
+	  	        </ons-col>
+	  	        <ons-col>
+	  	          <div class="name">
+	  	            Eiffel Tower
+	  	          </div>
+	  	          <div class="location">
+	  	            <i class="fa fa-map-marker"></i> Paris, France
+	  	          </div>
+	  	          <div class="desc">
+	  	            Eiffel Tower is the symbol of Paris and named by Gustave Eiffel.
+	  	          </div>
+	  	        </ons-col>
+	  	        <ons-col width="40px"></ons-col>
+	  	      </ons-row>
+	  	    </ons-list-item>
+		
+	  	  </ons-list> -->
+		<!-- </ons-page> -->
+		
+		<ons-template id="Recent.html">
+		  <ons-page>
+		        <ons-toolbar>
+		          <div class="center">
+		            Recent
+		          </div>
+		          <!-- <div class="right">
+		            <ons-toolbar-button>
+		              <ons-icon icon="ion-plus" fixed-width="false" style="vertical-align: -4px;"></ons-icon>
+		            </ons-toolbar-button>
+		          </div> -->
+		        </ons-toolbar>
+		
+		        <!-- <div class="navigation-bar search-bar">
+		          <div class="navigation-bar__center">
+		
+		            <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Search">
+		
+		          </div>
+		        </div> -->
+		
+		        <!-- insert -->
+		        <ons-list>
+		          <ons-list-item ng-repeat="recent in patientdb.recents track by $index" modifier="chevron" class="list-item-container">
+		            <ons-row>
+		              <ons-col width="95px">
+		                <img src="/www/img/EdisonChen.jpg" class="thumbnail">
+		              </ons-col>
+		              <ons-col>
+		                <div class="name">
+		                  {{ recent.name }}
+		                </div>
+		                <div class="location">
+		                  <i class="fa fa-map-marker"></i> {{ recent.HospitalID }}
+		                </div>
+		                <div class="desc">
+		                  {{ recent.RAMQNUM }}
+		                </div>
+		              </ons-col>
+		              <ons-col width="40px"></ons-col>
+		            </ons-row>
+		          </ons-list-item>
+		        </ons-list>
+		  </ons-page>
+		</ons-template>
+		</ons-navigator>
+	</body>
+</html>
