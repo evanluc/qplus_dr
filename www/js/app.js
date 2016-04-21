@@ -32,8 +32,7 @@ myApp.config(function($urlRouterProvider,$stateProvider) {
 
 	.state('splashScreen', {
             url: '/list',
-            templateUrl: 'js/components/splashscreen/splashscreen.html'
-            //template: 'welcome to splash magic'
+            template: 'welcome to splash magic'
 	})
 
         .state('menu',{
@@ -45,12 +44,6 @@ myApp.config(function($urlRouterProvider,$stateProvider) {
 	    url: '/tasks',
 	    templateUrl: 'js/components/home/home.html',
 	    controller: 'TasksCtrl'
-	})
-
-	.state('patients',{
-		url: '/patients',
-		templateUrl: 'js/components/patients/patient.html',
-		controller: 'PatientCtrl'
 	});
 });
 
